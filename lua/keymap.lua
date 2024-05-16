@@ -14,3 +14,5 @@ vim.api.nvim_set_keymap("n", "<S-Tab>", ":bprevious<CR>", { noremap = true })
 
 -- Set scrolloff option
 vim.opt.scrolloff = 7
+--Swapfile
+vim.opt.swapfile = false
