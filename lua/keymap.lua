@@ -4,6 +4,9 @@ vim.api.nvim_set_keymap("i", "<A-h>", "<Left>", { noremap = true })
 vim.api.nvim_set_keymap("i", "<A-k>", "<Up>", { noremap = true })
 vim.api.nvim_set_keymap("i", "<A-j>", "<Down>", { noremap = true })
 
+vim.api.nvim_set_keymap("n", ";", ":", { noremap = true })
+vim.api.nvim_set_keymap("n", ":", ";", { noremap = true })
+
 vim.api.nvim_set_keymap("i", "<C-h>", "<C-w>", { noremap = true })
 
 -- Navigate to the next buffer

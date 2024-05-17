@@ -10,6 +10,6 @@ return {
   { import = "astrocommunity.pack.lua" },
   -- import/override with your plugins folder
   { import = "astrocommunity.indent.mini-indentscope" },
-  { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   { import = "astrocommunity.motion.leap-nvim" },
+  { import = "astrocommunity.colorscheme.sonokai" },
 }
