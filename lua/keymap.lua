@@ -19,3 +19,4 @@ vim.api.nvim_set_keymap("n", "<S-Tab>", ":bprevious<CR>", { noremap = true })
 vim.opt.scrolloff = 7
 --Swapfile
 vim.opt.swapfile = false
+vim.api.nvim_set_hl(0, "Normal", { guibg = NONE, ctermbg = NONE })

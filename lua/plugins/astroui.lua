@@ -35,5 +35,9 @@ return {
       LSPLoading9 = "⠇",
       LSPLoading10 = "⠏",
     },
+
+    autocommands = {
+      { "ColorScheme", { command = "hi NvimTreeNormalNC guibg=NONE" } },
+    },
   },
 }

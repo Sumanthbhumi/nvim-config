@@ -124,12 +124,11 @@ return {
     config = function()
       require("modes").setup {
         colors = {
-          copy = "#f5c359",
           delete = "#c75c6a",
           insert = "#78ccc5",
           visual = "#9745be",
         },
-        line_opacity = 0.15,
+        line_opacity = 0.2,
         set_cursor = true,
         set_cursorline = true,
         set_number = true,
@@ -163,7 +162,7 @@ return {
           debounce = 75,
           keymap = {
             accept = "<M-i>",
-            accept_word = "<M-;>",
+            accept_word = "<Tab>",
             accept_line = "<M-o>",
             next = "<M-]>",
             prev = "<M-[>",
