@@ -19,4 +19,16 @@ vim.api.nvim_set_keymap("n", "<S-Tab>", ":bprevious<CR>", { noremap = true })
 vim.opt.scrolloff = 7
 --Swapfile
 vim.opt.swapfile = false
+
 vim.api.nvim_set_hl(0, "Normal", { guibg = NONE, ctermbg = NONE })
+-- Set transparency for NvimTree
+vim.api.nvim_set_hl(0, "NvimTreeNormalNC", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "NvimTreeEndOfBuffer", { bg = "NONE" })
+
+-- Set transparency for floating windows
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE" })
+vim.keymap.set("i", "<c-bs>", "<C-W>", { noremap = true, silent = true })
+-- vim.keymap.set("c", "<c-bs>", "<C-W>", { noremap = true, silent = true })

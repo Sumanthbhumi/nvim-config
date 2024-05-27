@@ -114,7 +114,7 @@ return {
     },
     opts = {},
   },
-
+  -- to move lines up and down
   {
     "matze/vim-move",
   },
@@ -126,7 +126,8 @@ return {
         colors = {
           delete = "#c75c6a",
           insert = "#78ccc5",
-          visual = "#9745be",
+          visual = "#FFFF00",
+          normal = "#FF00FF",
         },
         line_opacity = 0.2,
         set_cursor = true,
@@ -162,7 +163,7 @@ return {
           debounce = 75,
           keymap = {
             accept = "<M-i>",
-            accept_word = "<Tab>",
+            accept_word = "<M-n>",
             accept_line = "<M-o>",
             next = "<M-]>",
             prev = "<M-[>",
@@ -184,5 +185,43 @@ return {
         server_opts_overrides = {},
       }
     end,
+  },
+
+  {
+    "folke/tokyonight.nvim",
+    opts = {
+      transparent = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
+    },
+  },
+
+  {
+    "stevearc/oil.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("oil").setup {
+        columns = { "icon" },
+        keymaps = {
+          ["<C-h>"] = false,
+          ["<M-h>"] = "actions.select_split",
+        },
+        view_options = {
+          show_hidden = true,
+        },
+      }
+
+      -- Open parent directory in current window
+      vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+      -- Open parent directory in floating window
+      vim.keymap.set("n", "<space>-", require("oil").toggle_float)
+    end,
+  },
+
+  {
+    "wolandark/vim-live-server",
   },
 }
