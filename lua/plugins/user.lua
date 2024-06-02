@@ -23,12 +23,12 @@ return {
     opts = function(_, opts)
       -- customize the dashboard header
       opts.section.header.val = {
-        " █████  ███████ ████████ ██████   ██████",
-        "██   ██ ██         ██    ██   ██ ██    ██",
-        "███████ ███████    ██    ██████  ██    ██",
-        "██   ██      ██    ██    ██   ██ ██    ██",
-        "██   ██ ███████    ██    ██   ██  ██████",
-        " ",
+        -- " █████  ███████ ████████ ██████   ██████",
+        -- "██   ██ ██         ██    ██   ██ ██    ██",
+        -- "███████ ███████    ██    ██████  ██    ██",
+        -- "██   ██      ██    ██    ██   ██ ██    ██",
+        -- "██   ██ ███████    ██    ██   ██  ██████",
+        -- " ",
         "    ███    ██ ██    ██ ██ ███    ███",
         "    ████   ██ ██    ██ ██ ████  ████",
         "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
@@ -125,8 +125,8 @@ return {
       require("modes").setup {
         colors = {
           delete = "#c75c6a",
-          insert = "#78ccc5",
-          visual = "#FFFF00",
+          insert = "#ff8c00",
+          visual = "#fbfcfc",
           normal = "#FF00FF",
         },
         line_opacity = 0.2,
@@ -217,11 +217,69 @@ return {
       vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
       -- Open parent directory in floating window
-      vim.keymap.set("n", "<space>-", require("oil").toggle_float)
+      vim.keymap.set(
+        "n",
+        "<space>-",
+        require("oil").toggle_float,
+        { desc = "Open parent directory in floating window" }
+      )
     end,
   },
-
+  --add tmux plugin
   {
-    "wolandark/vim-live-server",
+    "christoomey/vim-tmux-navigator",
+  },
+  -- {
+  --   "CopilotC-Nvim/CopilotChat.nvim",
+  --   branch = "canary",
+  --   dependencies = {
+  --     { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
+  --     { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+  --   },
+  --   opts = {
+  --     debug = true, -- Enable debugging
+  --     -- See Configuration section for rest
+  --   },
+  --   -- See Commands section for default commands if you want to lazy load on them
+  -- },
+  "nvim-neorg/neorg",
+  version = "^8",
+  dependencies = {
+    {
+      "vhyrro/luarocks.nvim",
+      priority = 1000, -- We'd like this plugin to load first out of the rest
+      config = true,
+    },
+  },
+  event = "VeryLazy",
+  opts = {
+    load = {
+      ["core.defaults"] = {}, -- Loads default behaviour
+      ["core.concealer"] = {}, -- Adds pretty icons to your documents
+      ["core.keybinds"] = {}, -- Adds default keybindings
+      ["core.completion"] = {
+        config = {
+          engine = "nvim-cmp",
+        },
+      }, -- Enables support for completion plugins
+      ["core.journal"] = {}, -- Enables support for the journal module
+      ["core.dirman"] = { -- Manages Neorg workspaces
+        config = {
+          workspaces = {
+            notes = "~/projects/notes",
+          },
+        },
+      },
+    },
+  },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup {
+        -- Configuration here, or leave empty to use defaults
+      }
+    end,
   },
 }

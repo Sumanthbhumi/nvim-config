@@ -8,7 +8,8 @@ vim.api.nvim_set_keymap("n", ";", ":", { noremap = true })
 vim.api.nvim_set_keymap("n", ":", ";", { noremap = true })
 
 vim.api.nvim_set_keymap("i", "<C-h>", "<C-w>", { noremap = true })
-
+-- delete word forward with ctrl + delete
+vim.keymap.set("i", "<C-Delete>", "<C-o>cw", { noremap = true, desc = "Delete word in front of the cursor" })
 -- Navigate to the next buffer
 vim.api.nvim_set_keymap("n", "<Tab>", ":bnext<CR>", { noremap = true })
 
@@ -21,14 +22,10 @@ vim.opt.scrolloff = 7
 vim.opt.swapfile = false
 
 vim.api.nvim_set_hl(0, "Normal", { guibg = NONE, ctermbg = NONE })
--- Set transparency for NvimTree
-vim.api.nvim_set_hl(0, "NvimTreeNormalNC", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "NvimTreeEndOfBuffer", { bg = "NONE" })
-
--- Set transparency for floating windows
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE" })
 vim.keymap.set("i", "<c-bs>", "<C-W>", { noremap = true, silent = true })
--- vim.keymap.set("c", "<c-bs>", "<C-W>", { noremap = true, silent = true })
+-- Highlight the current line number in normal mode
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
+
+-- set formatoptions-=cro
+-- vim.cmd [[autocmd FileType * set formatoptions-=ro]]
