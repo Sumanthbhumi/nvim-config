@@ -7,25 +7,6 @@ vim.api.nvim_set_keymap("i", "<A-j>", "<Down>", { noremap = true })
 vim.api.nvim_set_keymap("n", ";", ":", { noremap = true })
 vim.api.nvim_set_keymap("n", ":", ";", { noremap = true })
 
-vim.api.nvim_set_keymap("i", "<C-h>", "<C-w>", { noremap = true })
--- delete word forward with ctrl + delete
-vim.keymap.set("i", "<C-Delete>", "<C-o>cw", { noremap = true, desc = "Delete word in front of the cursor" })
--- Navigate to the next buffer
-vim.api.nvim_set_keymap("n", "<Tab>", ":bnext<CR>", { noremap = true })
-
--- Navigate to the previous buffer
-vim.api.nvim_set_keymap("n", "<S-Tab>", ":bprevious<CR>", { noremap = true })
-
--- Set scrolloff option
-vim.opt.scrolloff = 7
---Swapfile
-vim.opt.swapfile = false
-
-vim.api.nvim_set_hl(0, "Normal", { guibg = NONE, ctermbg = NONE })
-vim.keymap.set("i", "<c-bs>", "<C-W>", { noremap = true, silent = true })
--- Highlight the current line number in normal mode
-vim.opt.cursorline = true
-vim.opt.cursorlineopt = "number"
-
--- set formatoptions-=cro
--- vim.cmd [[autocmd FileType * set formatoptions-=ro]]
+vim.api.nvim_set_keymap("i", "<C-h>", "<C-w>", { noremap = true }) -- Delete the previous word
+vim.api.nvim_set_keymap("n", "<Tab>", ":bnext<CR>", { noremap = true }) -- Navigate to the next buffer
+vim.api.nvim_set_keymap("n", "<S-Tab>", ":bprevious<CR>", { noremap = true }) -- Navigate to the previous buffer

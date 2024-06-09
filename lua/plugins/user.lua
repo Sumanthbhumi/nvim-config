@@ -29,11 +29,18 @@ return {
         -- "██   ██      ██    ██    ██   ██ ██    ██",
         -- "██   ██ ███████    ██    ██   ██  ██████",
         -- " ",
-        "    ███    ██ ██    ██ ██ ███    ███",
-        "    ████   ██ ██    ██ ██ ████  ████",
-        "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-        "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-        "    ██   ████   ████   ██ ██      ██",
+        -- "    ███    ██ ██    ██ ██ ███    ███",
+        -- "    ████   ██ ██    ██ ██ ████  ████",
+        -- "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
+        -- "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
+        -- "    ██   ████   ████   ██ ██      ██",
+
+        "███████╗██╗███╗   ██╗██╗███████╗██╗  ██╗     ██████╗██╗  ██╗███████╗██╗   ██╗    ██████╗ ███████╗██╗   ██╗",
+        "██╔════╝██║████╗  ██║██║██╔════╝██║  ██║    ██╔════╝██║  ██║██╔════╝╚██╗ ██╔╝    ██╔══██╗██╔════╝╚██╗ ██╔╝",
+        "█████╗  ██║██╔██╗ ██║██║███████╗███████║    ██║     ███████║█████╗   ╚████╔╝     ██████╔╝█████╗   ╚████╔╝ ",
+        "██╔══╝  ██║██║╚██╗██║██║╚════██║██╔══██║    ██║     ██╔══██║██╔══╝    ╚██╔╝      ██╔══██╗██╔══╝    ╚██╔╝  ",
+        "██║     ██║██║ ╚████║██║███████║██║  ██║    ╚██████╗██║  ██║███████╗   ██║       ██████╔╝███████╗   ██║   ",
+        "╚═╝     ╚═╝╚═╝  ╚═══╝╚═╝╚══════╝╚═╝  ╚═╝     ╚═════╝╚═╝  ╚═╝╚══════╝   ╚═╝       ╚═════╝ ╚══════╝   ╚═╝   ",
       }
       return opts
     end,
@@ -125,11 +132,11 @@ return {
       require("modes").setup {
         colors = {
           delete = "#c75c6a",
-          insert = "#ff8c00",
-          visual = "#fbfcfc",
+          -- insert = "NONE",
+          visual = "#ff8c00",
           normal = "#FF00FF",
         },
-        line_opacity = 0.2,
+        line_opacity = 0.5,
         set_cursor = true,
         set_cursorline = true,
         set_number = true,
@@ -242,36 +249,40 @@ return {
   --   },
   --   -- See Commands section for default commands if you want to lazy load on them
   -- },
-  "nvim-neorg/neorg",
-  version = "^8",
-  dependencies = {
-    {
-      "vhyrro/luarocks.nvim",
-      priority = 1000, -- We'd like this plugin to load first out of the rest
-      config = true,
+
+  {
+    "nvim-neorg/neorg",
+    version = "^8",
+    dependencies = {
+      {
+        "vhyrro/luarocks.nvim",
+        priority = 1000, -- We'd like this plugin to load first out of the rest
+        config = true,
+      },
     },
-  },
-  event = "VeryLazy",
-  opts = {
-    load = {
-      ["core.defaults"] = {}, -- Loads default behaviour
-      ["core.concealer"] = {}, -- Adds pretty icons to your documents
-      ["core.keybinds"] = {}, -- Adds default keybindings
-      ["core.completion"] = {
-        config = {
-          engine = "nvim-cmp",
-        },
-      }, -- Enables support for completion plugins
-      ["core.journal"] = {}, -- Enables support for the journal module
-      ["core.dirman"] = { -- Manages Neorg workspaces
-        config = {
-          workspaces = {
-            notes = "~/projects/notes",
+    event = "VeryLazy",
+    opts = {
+      load = {
+        ["core.defaults"] = {}, -- Loads default behaviour
+        ["core.concealer"] = {}, -- Adds pretty icons to your documents
+        ["core.keybinds"] = {}, -- Adds default keybindings
+        ["core.completion"] = {
+          config = {
+            engine = "nvim-cmp",
+          },
+        }, -- Enables support for completion plugins
+        ["core.journal"] = {}, -- Enables support for the journal module
+        ["core.dirman"] = { -- Manages Neorg workspaces
+          config = {
+            workspaces = {
+              notes = "~/projects/notes",
+            },
           },
         },
       },
     },
   },
+
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
